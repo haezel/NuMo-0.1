@@ -16,6 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // Override point for customization after application launch.
+        
+        Util.copyFile("usda.sql3")
+        
+        // Return status bar to the screen & set its style.
+        let application = UIApplication.sharedApplication()
+        application.setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
+        application.statusBarStyle = UIStatusBarStyle.LightContent
+        
+        // Setup navigation bar appearance.
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.barTintColor = UIColor.colorFromCode(0xEE4540)//0x2ecc71)
+        navigationBar.tintColor = UIColor.whiteColor()
+        
         return true
     }
 

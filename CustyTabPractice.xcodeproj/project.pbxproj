@@ -8,12 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		8AC9ACE61B33785500CE020C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9ACE51B33785500CE020C /* AppDelegate.swift */; };
-		8AC9ACE81B33785500CE020C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9ACE71B33785500CE020C /* FirstViewController.swift */; };
+		8AC9ACE81B33785500CE020C /* MainSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9ACE71B33785500CE020C /* MainSearchController.swift */; };
 		8AC9ACEA1B33785500CE020C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9ACE91B33785500CE020C /* SecondViewController.swift */; };
 		8AC9ACED1B33785500CE020C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC9ACEB1B33785500CE020C /* Main.storyboard */; };
 		8AC9ACEF1B33785500CE020C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC9ACEE1B33785500CE020C /* Images.xcassets */; };
 		8AC9ACF21B33785500CE020C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC9ACF01B33785500CE020C /* LaunchScreen.xib */; };
 		8AC9ACFE1B33785500CE020C /* CustyTabPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9ACFD1B33785500CE020C /* CustyTabPracticeTests.swift */; };
+		8AC9AD081B3378D500CE020C /* MMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9AD071B3378D500CE020C /* MMTabBarController.swift */; };
+		8AC9AD0A1B33808600CE020C /* MMNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9AD091B33808600CE020C /* MMNavigationSegue.swift */; };
+		8AD428901B34AD4B000AAFBB /* SearchTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4288F1B34AD4B000AAFBB /* SearchTabController.swift */; };
+		8AD428921B34B6FE000AAFBB /* SearchNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428911B34B6FE000AAFBB /* SearchNavigationSegue.swift */; };
+		8AD428961B38BEE7000AAFBB /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428951B38BEE7000AAFBB /* Food.swift */; };
+		8AD428981B38BF10000AAFBB /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428971B38BF10000AAFBB /* ModelManager.swift */; };
+		8AD4289A1B38C081000AAFBB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD428991B38C081000AAFBB /* libsqlite3.dylib */; };
+		8AD428B21B38C288000AAFBB /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428AE1B38C288000AAFBB /* Weight.swift */; };
+		8AD428B31B38C288000AAFBB /* Nutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428AF1B38C288000AAFBB /* Nutrient.swift */; };
+		8AD428B41B38C288000AAFBB /* FoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428B01B38C288000AAFBB /* FoodLog.swift */; };
+		8AD428B51B38C288000AAFBB /* FoodForTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428B11B38C288000AAFBB /* FoodForTable.swift */; };
+		8AD428B71B38C2F8000AAFBB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428B61B38C2F8000AAFBB /* Util.swift */; };
+		8AD428B91B38C3C1000AAFBB /* UIColor+ColorFromCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428B81B38C3C1000AAFBB /* UIColor+ColorFromCode.swift */; };
+		8AD428BE1B38CBBB000AAFBB /* usda.sql3 in Resources */ = {isa = PBXBuildFile; fileRef = 8AD428BD1B38CBBB000AAFBB /* usda.sql3 */; };
+		8AD428CA1B38D9A3000AAFBB /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428C11B38D9A3000AAFBB /* FMDatabase.m */; };
+		8AD428CB1B38D9A3000AAFBB /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428C31B38D9A3000AAFBB /* FMResultSet.m */; };
+		8AD428CC1B38D9A3000AAFBB /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428C51B38D9A3000AAFBB /* FMDatabaseQueue.m */; };
+		8AD428CD1B38D9A3000AAFBB /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428C71B38D9A3000AAFBB /* FMDatabaseAdditions.m */; };
+		8AD428CE1B38D9A3000AAFBB /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428C91B38D9A3000AAFBB /* FMDatabasePool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +49,7 @@
 		8AC9ACE01B33785500CE020C /* CustyTabPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustyTabPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC9ACE41B33785500CE020C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AC9ACE51B33785500CE020C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8AC9ACE71B33785500CE020C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		8AC9ACE71B33785500CE020C /* MainSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchController.swift; sourceTree = "<group>"; };
 		8AC9ACE91B33785500CE020C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		8AC9ACEC1B33785500CE020C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AC9ACEE1B33785500CE020C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -38,6 +57,32 @@
 		8AC9ACF71B33785500CE020C /* CustyTabPracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustyTabPracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC9ACFC1B33785500CE020C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AC9ACFD1B33785500CE020C /* CustyTabPracticeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustyTabPracticeTests.swift; sourceTree = "<group>"; };
+		8AC9AD071B3378D500CE020C /* MMTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTabBarController.swift; sourceTree = "<group>"; };
+		8AC9AD091B33808600CE020C /* MMNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMNavigationSegue.swift; sourceTree = "<group>"; };
+		8AD4288F1B34AD4B000AAFBB /* SearchTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabController.swift; sourceTree = "<group>"; };
+		8AD428911B34B6FE000AAFBB /* SearchNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationSegue.swift; sourceTree = "<group>"; };
+		8AD428951B38BEE7000AAFBB /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		8AD428971B38BF10000AAFBB /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		8AD428991B38C081000AAFBB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8AD428AE1B38C288000AAFBB /* Weight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
+		8AD428AF1B38C288000AAFBB /* Nutrient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrient.swift; sourceTree = "<group>"; };
+		8AD428B01B38C288000AAFBB /* FoodLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodLog.swift; sourceTree = "<group>"; };
+		8AD428B11B38C288000AAFBB /* FoodForTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodForTable.swift; sourceTree = "<group>"; };
+		8AD428B61B38C2F8000AAFBB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		8AD428B81B38C3C1000AAFBB /* UIColor+ColorFromCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorFromCode.swift"; sourceTree = "<group>"; };
+		8AD428BD1B38CBBB000AAFBB /* usda.sql3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = usda.sql3; sourceTree = "<group>"; };
+		8AD428BF1B38D9A3000AAFBB /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		8AD428C01B38D9A3000AAFBB /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		8AD428C11B38D9A3000AAFBB /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		8AD428C21B38D9A3000AAFBB /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		8AD428C31B38D9A3000AAFBB /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		8AD428C41B38D9A3000AAFBB /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		8AD428C51B38D9A3000AAFBB /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		8AD428C61B38D9A3000AAFBB /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		8AD428C71B38D9A3000AAFBB /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		8AD428C81B38D9A3000AAFBB /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		8AD428C91B38D9A3000AAFBB /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		8AD428D11B38DA31000AAFBB /* CustyTabPractice-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CustyTabPractice-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD4289A1B38C081000AAFBB /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +107,8 @@
 		8AC9ACD71B33785500CE020C = {
 			isa = PBXGroup;
 			children = (
+				8AD428BD1B38CBBB000AAFBB /* usda.sql3 */,
+				8AD428991B38C081000AAFBB /* libsqlite3.dylib */,
 				8AC9ACE21B33785500CE020C /* CustyTabPractice */,
 				8AC9ACFA1B33785500CE020C /* CustyTabPracticeTests */,
 				8AC9ACE11B33785500CE020C /* Products */,
@@ -79,13 +127,27 @@
 		8AC9ACE21B33785500CE020C /* CustyTabPractice */ = {
 			isa = PBXGroup;
 			children = (
+				8AD428D11B38DA31000AAFBB /* CustyTabPractice-Bridging-Header.h */,
+				8AD428D01B38D9B7000AAFBB /* FMDB */,
+				8AD428B81B38C3C1000AAFBB /* UIColor+ColorFromCode.swift */,
+				8AD428B61B38C2F8000AAFBB /* Util.swift */,
+				8AD428AE1B38C288000AAFBB /* Weight.swift */,
+				8AD428AF1B38C288000AAFBB /* Nutrient.swift */,
+				8AD428B01B38C288000AAFBB /* FoodLog.swift */,
+				8AD428B11B38C288000AAFBB /* FoodForTable.swift */,
+				8AD428971B38BF10000AAFBB /* ModelManager.swift */,
+				8AD428951B38BEE7000AAFBB /* Food.swift */,
 				8AC9ACE51B33785500CE020C /* AppDelegate.swift */,
-				8AC9ACE71B33785500CE020C /* FirstViewController.swift */,
+				8AC9ACE71B33785500CE020C /* MainSearchController.swift */,
 				8AC9ACE91B33785500CE020C /* SecondViewController.swift */,
 				8AC9ACEB1B33785500CE020C /* Main.storyboard */,
 				8AC9ACEE1B33785500CE020C /* Images.xcassets */,
 				8AC9ACF01B33785500CE020C /* LaunchScreen.xib */,
 				8AC9ACE31B33785500CE020C /* Supporting Files */,
+				8AC9AD071B3378D500CE020C /* MMTabBarController.swift */,
+				8AC9AD091B33808600CE020C /* MMNavigationSegue.swift */,
+				8AD4288F1B34AD4B000AAFBB /* SearchTabController.swift */,
+				8AD428911B34B6FE000AAFBB /* SearchNavigationSegue.swift */,
 			);
 			path = CustyTabPractice;
 			sourceTree = "<group>";
@@ -113,6 +175,24 @@
 				8AC9ACFC1B33785500CE020C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8AD428D01B38D9B7000AAFBB /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				8AD428BF1B38D9A3000AAFBB /* FMDB.h */,
+				8AD428C01B38D9A3000AAFBB /* FMDatabase.h */,
+				8AD428C11B38D9A3000AAFBB /* FMDatabase.m */,
+				8AD428C21B38D9A3000AAFBB /* FMResultSet.h */,
+				8AD428C31B38D9A3000AAFBB /* FMResultSet.m */,
+				8AD428C41B38D9A3000AAFBB /* FMDatabaseQueue.h */,
+				8AD428C51B38D9A3000AAFBB /* FMDatabaseQueue.m */,
+				8AD428C61B38D9A3000AAFBB /* FMDatabaseAdditions.h */,
+				8AD428C71B38D9A3000AAFBB /* FMDatabaseAdditions.m */,
+				8AD428C81B38D9A3000AAFBB /* FMDatabasePool.h */,
+				8AD428C91B38D9A3000AAFBB /* FMDatabasePool.m */,
+			);
+			name = FMDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD428BE1B38CBBB000AAFBB /* usda.sql3 in Resources */,
 				8AC9ACED1B33785500CE020C /* Main.storyboard in Resources */,
 				8AC9ACF21B33785500CE020C /* LaunchScreen.xib in Resources */,
 				8AC9ACEF1B33785500CE020C /* Images.xcassets in Resources */,
@@ -215,9 +296,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD428B51B38C288000AAFBB /* FoodForTable.swift in Sources */,
 				8AC9ACEA1B33785500CE020C /* SecondViewController.swift in Sources */,
+				8AC9AD081B3378D500CE020C /* MMTabBarController.swift in Sources */,
+				8AD428B31B38C288000AAFBB /* Nutrient.swift in Sources */,
 				8AC9ACE61B33785500CE020C /* AppDelegate.swift in Sources */,
-				8AC9ACE81B33785500CE020C /* FirstViewController.swift in Sources */,
+				8AC9AD0A1B33808600CE020C /* MMNavigationSegue.swift in Sources */,
+				8AD428B21B38C288000AAFBB /* Weight.swift in Sources */,
+				8AC9ACE81B33785500CE020C /* MainSearchController.swift in Sources */,
+				8AD428B41B38C288000AAFBB /* FoodLog.swift in Sources */,
+				8AD428981B38BF10000AAFBB /* ModelManager.swift in Sources */,
+				8AD428B71B38C2F8000AAFBB /* Util.swift in Sources */,
+				8AD428961B38BEE7000AAFBB /* Food.swift in Sources */,
+				8AD428B91B38C3C1000AAFBB /* UIColor+ColorFromCode.swift in Sources */,
+				8AD428CB1B38D9A3000AAFBB /* FMResultSet.m in Sources */,
+				8AD428901B34AD4B000AAFBB /* SearchTabController.swift in Sources */,
+				8AD428CD1B38D9A3000AAFBB /* FMDatabaseAdditions.m in Sources */,
+				8AD428921B34B6FE000AAFBB /* SearchNavigationSegue.swift in Sources */,
+				8AD428CE1B38D9A3000AAFBB /* FMDatabasePool.m in Sources */,
+				8AD428CA1B38D9A3000AAFBB /* FMDatabase.m in Sources */,
+				8AD428CC1B38D9A3000AAFBB /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +444,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CustyTabPractice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CustyTabPractice/CustyTabPractice-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -356,9 +457,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CustyTabPractice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CustyTabPractice/CustyTabPractice-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -415,6 +518,7 @@
 				8AC9AD031B33785500CE020C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8AC9AD041B33785500CE020C /* Build configuration list for PBXNativeTarget "CustyTabPracticeTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +527,7 @@
 				8AC9AD061B33785500CE020C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
