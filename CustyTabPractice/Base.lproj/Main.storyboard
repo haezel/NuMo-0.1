@@ -515,7 +515,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nF3-Uj-Alv">
-                                <rect key="frame" x="0.0" y="179" width="600" height="421"/>
+                                <rect key="frame" x="0.0" y="124" width="600" height="475.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="421" id="2GV-ag-1g3"/>
@@ -542,6 +542,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2GV-ag-1g3"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="8rJ-Kc-sve" id="hqw-Ve-fJc"/>
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="e71-vw-NAM"/>
@@ -561,11 +566,20 @@
                                     <action selector="itemNutrientChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="VGi-rO-UHd"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXa-IU-d6Q">
+                                <rect key="frame" x="277" y="80" width="46" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="nXa-IU-d6Q" secondAttribute="centerX" id="G4n-c6-xNr"/>
+                            <constraint firstItem="nXa-IU-d6Q" firstAttribute="top" secondItem="1r7-Xv-gph" secondAttribute="bottom" constant="24" id="SRo-N6-0Ai"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nF3-Uj-Alv" secondAttribute="trailing" constant="-16" id="aFR-d7-QGZ"/>
                             <constraint firstItem="nF3-Uj-Alv" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-16" id="grK-iQ-rY8"/>
+                            <constraint firstItem="nF3-Uj-Alv" firstAttribute="top" secondItem="nXa-IU-d6Q" secondAttribute="bottom" constant="24" id="h4Q-7I-yIq"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="nF3-Uj-Alv" secondAttribute="bottom" id="sQb-pQ-QWR"/>
                             <constraint firstItem="1r7-Xv-gph" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="sTi-LI-nw1"/>
                             <constraint firstItem="1r7-Xv-gph" firstAttribute="centerX" secondItem="nF3-Uj-Alv" secondAttribute="centerX" id="xFv-Z4-l7Y"/>

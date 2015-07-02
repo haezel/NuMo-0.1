@@ -89,7 +89,7 @@ class ModelManager : NSObject
     //           returns an dictionary of key nutrientId and values: Nutrients, total amounts
     //
 
-    func getNutrientTotals() -> Dictionary<Int, (nutrient:Nutrient, total:Double)>
+    func getNutrientTotals(date : String) -> Dictionary<Int, (nutrient:Nutrient, total:Double)>
     {
         //var loggedItems = (getLoggedItems()).0
         
@@ -100,8 +100,8 @@ class ModelManager : NSObject
         
         sharedInstance.database!.open()
         
-        let query2 = "SELECT * FROM food_log"
-        var resultSet2: FMResultSet! = sharedInstance.database!.executeQuery(query2, withArgumentsInArray: nil)
+        let query2 = "SELECT * FROM food_log WHERE date_logged=?"
+        var resultSet2: FMResultSet! = sharedInstance.database!.executeQuery(query2, withArgumentsInArray: [date])
         
         if resultSet2 != nil
         {
@@ -241,15 +241,18 @@ class ModelManager : NSObject
         return isInserted
     }
     
-    func getLoggedItems() -> ([FoodForTable], Int)
+    // gets all of the logged food_log items for date provided
+    // returns a tuple of (array of foodForTable items, number of items)
+    
+    func getLoggedItems(date : String) -> ([FoodForTable], Int)
     {
         
         sharedInstance.database!.open()
         
         var foodsForTable = [FoodForTable]()
         
-        let query = "SELECT COUNT(*) as cnt FROM food_log"
-        var resultSet: FMResultSet! = sharedInstance.database!.executeQuery(query, withArgumentsInArray: nil)
+        let query = "SELECT COUNT(*) as cnt FROM food_log WHERE date_logged=?"
+        var resultSet: FMResultSet! = sharedInstance.database!.executeQuery(query, withArgumentsInArray: [date])
         
         var count : Int32 = 0
         if resultSet != nil
@@ -257,12 +260,12 @@ class ModelManager : NSObject
             while resultSet.next()
             {
                 count = resultSet.intForColumn("cnt")
-                println("There are \(count) items logged.")
+                println("There are \(count) items logged on date \(date).")
             }
         }
         
-        let query2 = "SELECT * FROM food_log"
-        var resultSet2: FMResultSet! = sharedInstance.database!.executeQuery(query2, withArgumentsInArray: nil)
+        let query2 = "SELECT * FROM food_log WHERE date_logged=?"
+        var resultSet2: FMResultSet! = sharedInstance.database!.executeQuery(query2, withArgumentsInArray: [date])
         
         if resultSet2 != nil
         {
@@ -306,12 +309,12 @@ class ModelManager : NSObject
     }
     
     //needs to be updated to take into account date logged...
-    func deleteItemFromFoodLog(time : String) -> Bool
+    func deleteItemFromFoodLog(date: String, time : String) -> Bool
     {
         sharedInstance.database!.open()
         
         //eventually needs to take into account date_logged as well
-        let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM food_log WHERE time_logged=?", withArgumentsInArray: [time])
+        let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM food_log WHERE time_logged=? AND date_logged=?", withArgumentsInArray: [time, date])
         
         sharedInstance.database!.close()
         

@@ -15,6 +15,8 @@ class MyDayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var itemOrNutrientFlag = "item"
     
+    //need to use a UI element to chose this String date
+    var dateChosen = "2015-06-30"
     
     @IBOutlet weak var itemNutrientSegControl: UISegmentedControl!
 
@@ -54,7 +56,7 @@ class MyDayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.reloadData()
         
-        self.nutrientTotals = ModelManager.instance.getNutrientTotals()
+        self.nutrientTotals = ModelManager.instance.getNutrientTotals(dateChosen)
     }
     
     
@@ -70,7 +72,7 @@ class MyDayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         {
             self.tableView.separatorColor = UIColor.colorFromCode(0xDBE6EC)
             //get the logged food items from the db
-            self.logInfo =  ModelManager.instance.getLoggedItems()
+            self.logInfo =  ModelManager.instance.getLoggedItems(dateChosen)
             if self.logInfo != nil
             {
                 let count = self.logInfo!.1
@@ -84,7 +86,7 @@ class MyDayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         else if itemOrNutrientFlag == "nutrient"
         {
             self.tableView.separatorColor = UIColor.clearColor()
-            self.nutrientTotals = ModelManager.instance.getNutrientTotals()
+            self.nutrientTotals = ModelManager.instance.getNutrientTotals(dateChosen)
            
             return nutrientsToShow.count
         }
@@ -155,7 +157,7 @@ class MyDayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let time = self.logInfo!.0[indexPath.row].time
             
-            ModelManager.instance.deleteItemFromFoodLog(time)
+            ModelManager.instance.deleteItemFromFoodLog(dateChosen , time: time)
             
             self.tableView.reloadData()
         }
