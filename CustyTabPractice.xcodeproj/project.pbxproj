@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AB7516A1B420F8800BCE1A9 /* PhotoRemindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB751691B420F8800BCE1A9 /* PhotoRemindController.swift */; };
 		8AC9ACE61B33785500CE020C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9ACE51B33785500CE020C /* AppDelegate.swift */; };
 		8AC9ACE81B33785500CE020C /* MainSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9ACE71B33785500CE020C /* MainSearchController.swift */; };
 		8AC9ACEA1B33785500CE020C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9ACE91B33785500CE020C /* SecondViewController.swift */; };
@@ -33,6 +34,12 @@
 		8AD428CC1B38D9A3000AAFBB /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428C51B38D9A3000AAFBB /* FMDatabaseQueue.m */; };
 		8AD428CD1B38D9A3000AAFBB /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428C71B38D9A3000AAFBB /* FMDatabaseAdditions.m */; };
 		8AD428CE1B38D9A3000AAFBB /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428C91B38D9A3000AAFBB /* FMDatabasePool.m */; };
+		8AD428D51B39F51C000AAFBB /* PickAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428D41B39F51C000AAFBB /* PickAmountViewController.swift */; };
+		8AD428D71B39F917000AAFBB /* MyDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428D61B39F917000AAFBB /* MyDayViewController.swift */; };
+		8AD428DA1B39FA01000AAFBB /* NutrientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428D81B39FA01000AAFBB /* NutrientTableViewCell.swift */; };
+		8AD428DB1B39FA01000AAFBB /* nutrientTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AD428D91B39FA01000AAFBB /* nutrientTableCell.xib */; };
+		8AD428DD1B39FE57000AAFBB /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AD428DC1B39FE57000AAFBB /* fontawesome-webfont.ttf */; };
+		8AD428DF1B3CAC7B000AAFBB /* DistributeViewsEvenly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428DE1B3CAC7B000AAFBB /* DistributeViewsEvenly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8AB751691B420F8800BCE1A9 /* PhotoRemindController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoRemindController.swift; sourceTree = "<group>"; };
 		8AC9ACE01B33785500CE020C /* CustyTabPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustyTabPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC9ACE41B33785500CE020C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AC9ACE51B33785500CE020C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +91,12 @@
 		8AD428C81B38D9A3000AAFBB /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
 		8AD428C91B38D9A3000AAFBB /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		8AD428D11B38DA31000AAFBB /* CustyTabPractice-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CustyTabPractice-Bridging-Header.h"; sourceTree = "<group>"; };
+		8AD428D41B39F51C000AAFBB /* PickAmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickAmountViewController.swift; sourceTree = "<group>"; };
+		8AD428D61B39F917000AAFBB /* MyDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayViewController.swift; sourceTree = "<group>"; };
+		8AD428D81B39FA01000AAFBB /* NutrientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientTableViewCell.swift; sourceTree = "<group>"; };
+		8AD428D91B39FA01000AAFBB /* nutrientTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nutrientTableCell.xib; sourceTree = "<group>"; };
+		8AD428DC1B39FE57000AAFBB /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		8AD428DE1B3CAC7B000AAFBB /* DistributeViewsEvenly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributeViewsEvenly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +121,7 @@
 		8AC9ACD71B33785500CE020C = {
 			isa = PBXGroup;
 			children = (
+				8AD428DC1B39FE57000AAFBB /* fontawesome-webfont.ttf */,
 				8AD428BD1B38CBBB000AAFBB /* usda.sql3 */,
 				8AD428991B38C081000AAFBB /* libsqlite3.dylib */,
 				8AC9ACE21B33785500CE020C /* CustyTabPractice */,
@@ -127,6 +142,10 @@
 		8AC9ACE21B33785500CE020C /* CustyTabPractice */ = {
 			isa = PBXGroup;
 			children = (
+				8AD428DE1B3CAC7B000AAFBB /* DistributeViewsEvenly.swift */,
+				8AD428D81B39FA01000AAFBB /* NutrientTableViewCell.swift */,
+				8AD428D91B39FA01000AAFBB /* nutrientTableCell.xib */,
+				8AD428D61B39F917000AAFBB /* MyDayViewController.swift */,
 				8AD428D11B38DA31000AAFBB /* CustyTabPractice-Bridging-Header.h */,
 				8AD428D01B38D9B7000AAFBB /* FMDB */,
 				8AD428B81B38C3C1000AAFBB /* UIColor+ColorFromCode.swift */,
@@ -139,6 +158,7 @@
 				8AD428951B38BEE7000AAFBB /* Food.swift */,
 				8AC9ACE51B33785500CE020C /* AppDelegate.swift */,
 				8AC9ACE71B33785500CE020C /* MainSearchController.swift */,
+				8AD428D41B39F51C000AAFBB /* PickAmountViewController.swift */,
 				8AC9ACE91B33785500CE020C /* SecondViewController.swift */,
 				8AC9ACEB1B33785500CE020C /* Main.storyboard */,
 				8AC9ACEE1B33785500CE020C /* Images.xcassets */,
@@ -148,6 +168,7 @@
 				8AC9AD091B33808600CE020C /* MMNavigationSegue.swift */,
 				8AD4288F1B34AD4B000AAFBB /* SearchTabController.swift */,
 				8AD428911B34B6FE000AAFBB /* SearchNavigationSegue.swift */,
+				8AB751691B420F8800BCE1A9 /* PhotoRemindController.swift */,
 			);
 			path = CustyTabPractice;
 			sourceTree = "<group>";
@@ -244,6 +265,7 @@
 				TargetAttributes = {
 					8AC9ACDF1B33785500CE020C = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 5PGRHWKL4N;
 					};
 					8AC9ACF61B33785500CE020C = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -277,6 +299,8 @@
 			files = (
 				8AD428BE1B38CBBB000AAFBB /* usda.sql3 in Resources */,
 				8AC9ACED1B33785500CE020C /* Main.storyboard in Resources */,
+				8AD428DB1B39FA01000AAFBB /* nutrientTableCell.xib in Resources */,
+				8AD428DD1B39FE57000AAFBB /* fontawesome-webfont.ttf in Resources */,
 				8AC9ACF21B33785500CE020C /* LaunchScreen.xib in Resources */,
 				8AC9ACEF1B33785500CE020C /* Images.xcassets in Resources */,
 			);
@@ -297,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AD428B51B38C288000AAFBB /* FoodForTable.swift in Sources */,
+				8AD428D71B39F917000AAFBB /* MyDayViewController.swift in Sources */,
 				8AC9ACEA1B33785500CE020C /* SecondViewController.swift in Sources */,
 				8AC9AD081B3378D500CE020C /* MMTabBarController.swift in Sources */,
 				8AD428B31B38C288000AAFBB /* Nutrient.swift in Sources */,
@@ -305,9 +330,12 @@
 				8AD428B21B38C288000AAFBB /* Weight.swift in Sources */,
 				8AC9ACE81B33785500CE020C /* MainSearchController.swift in Sources */,
 				8AD428B41B38C288000AAFBB /* FoodLog.swift in Sources */,
+				8AD428DA1B39FA01000AAFBB /* NutrientTableViewCell.swift in Sources */,
 				8AD428981B38BF10000AAFBB /* ModelManager.swift in Sources */,
+				8AB7516A1B420F8800BCE1A9 /* PhotoRemindController.swift in Sources */,
 				8AD428B71B38C2F8000AAFBB /* Util.swift in Sources */,
 				8AD428961B38BEE7000AAFBB /* Food.swift in Sources */,
+				8AD428DF1B3CAC7B000AAFBB /* DistributeViewsEvenly.swift in Sources */,
 				8AD428B91B38C3C1000AAFBB /* UIColor+ColorFromCode.swift in Sources */,
 				8AD428CB1B38D9A3000AAFBB /* FMResultSet.m in Sources */,
 				8AD428901B34AD4B000AAFBB /* SearchTabController.swift in Sources */,
@@ -315,6 +343,7 @@
 				8AD428921B34B6FE000AAFBB /* SearchNavigationSegue.swift in Sources */,
 				8AD428CE1B38D9A3000AAFBB /* FMDatabasePool.m in Sources */,
 				8AD428CA1B38D9A3000AAFBB /* FMDatabase.m in Sources */,
+				8AD428D51B39F51C000AAFBB /* PickAmountViewController.swift in Sources */,
 				8AD428CC1B38D9A3000AAFBB /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,9 +474,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CustyTabPractice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CustyTabPractice/CustyTabPractice-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -458,9 +490,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CustyTabPractice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CustyTabPractice/CustyTabPractice-Bridging-Header.h";
 			};
 			name = Release;

@@ -16,13 +16,24 @@ class MMTabBarController: UIViewController {
     @IBOutlet var placeholderView: UIView!
     
     @IBOutlet var tabBarButtons: Array<UIButton>!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let searchTabBarButton : UIButton = tabBarButtons[0]
+        searchTabBarButton.setTitle("\u{f002}", forState:UIControlState.Normal)
+        
+        let myDayTabBarButton : UIButton = tabBarButtons[1]
+        myDayTabBarButton.setTitle("\u{f015}", forState:UIControlState.Normal)
+                
+        let settingsTabBarButton : UIButton = tabBarButtons[2]
+        settingsTabBarButton.setTitle("\u{f013}", forState:UIControlState.Normal)
+        
         if(tabBarButtons.count > 0)
         {
-            performSegueWithIdentifier("FirstVcIdentifier", sender: tabBarButtons[0])
+            performSegueWithIdentifier("SecondVcIdentifier", sender: tabBarButtons[1])
         }
     }
 

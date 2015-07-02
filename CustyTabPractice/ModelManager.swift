@@ -19,7 +19,7 @@ class ModelManager : NSObject
         sharedInstance.database = FMDatabase(path: Util.getPath("usda.sql3"))
         var path = Util.getPath("usda.sql3")
         
-        println("path: \(path)")
+        println("!!!!!!!path: \(path)")
         return sharedInstance
     }
     

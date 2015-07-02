@@ -1,0 +1,313 @@
+//
+//  PickAmountViewController.swift
+//  usdaSqlPractice
+//
+//  Created by Kathryn Manning on 5/26/15.
+//  Copyright (c) 2015 kathrynmanning. All rights reserved.
+//
+
+import UIKit
+
+class PickAmountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    @IBOutlet weak var measurePicker: UIPickerView!
+    
+    var pickerDataSource = ["White", "Red", "Green", "Blue"];
+    var wholeNumbers = ["—", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"];
+    var fractionNumbers = ["—", "1/8", "1/4", "1/3", "1/2", "2/3", "3/4"];
+    
+    //item to hold currently chosen food and amount
+    var logItem : FoodLog?
+    var foodItem : Food?
+    var measures : [Weight]?
+    var nutrients : [Nutrient]?
+    
+    //var to hold selected date
+    var date : String = ""
+    
+    var toggleFlag = true
+    
+    //---------LifeCycle Methods---------//
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.measurePicker.dataSource = self;
+        self.measurePicker.delegate = self;
+        
+        // Do any additional setup after loading the view.
+        self.title = foodItem?.desc
+        
+        var id : Int = foodItem!.id
+        getUnits(id)
+        getNutrients(id)
+        
+//        to print out the nutrients found for the food.
+        for var i = 0; i < nutrients!.count; ++i {
+            let s : String = self.nutrients![i].name
+            let a = self.nutrients![i].amountPerHundredGrams
+            let u = self.nutrients![i].units
+            println("nutrient # \(i) is \(s) and there is \(a) \(u) of it in 100 grams")
+        }
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        if toggleFlag == true {
+            setTabBarVisible(!tabBarIsVisible(), animated: true)
+        }
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        setTabBarVisible(!tabBarIsVisible(), animated: true)
+    }
+    
+    @IBAction func addItemToLog(sender: AnyObject)
+    {
+        // add currently chosen item and amounts to sql
+        if self.logItem != nil
+        {
+            ModelManager.instance.addFoodItemToLog(self.logItem!)
+            
+            //go back to search VC ?! unwind seque
+        }
+        else
+        {
+            //pop up box that tells you to choose an amount
+        }
+    }
+    
+    
+    //---------UI Picker Data Source Methods----------//
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        if component == 0 {
+            return (self.view.frame.size.width * 20 ) / 100
+        }
+        else if component == 1 {
+            return (self.view.frame.size.width * 25 ) / 100
+        }
+        else {
+            return (self.view.frame.size.width * 55 ) / 100
+        }
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return wholeNumbers.count
+        }
+        else if component == 1 {
+            return fractionNumbers.count
+        }
+        else {
+            return measures!.count
+        }
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        if component == 0 {
+            return wholeNumbers[row]
+        }
+        else if component == 1 {
+            return fractionNumbers[row]
+        }
+        else {
+            return measures![row].measure
+        }
+        
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        updateAmounts()
+        println(self.logItem?.amountConsumedGrams)
+
+    }
+    
+    //size the components of the UIPickerView
+    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 46.0
+    }
+    
+//    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+//        let titleData = wholeNumbers[row]
+//        var myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!,NSForegroundColorAttributeName:UIColor.blueColor()])
+//        return myTitle
+//    }
+//    
+//    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
+//        var pickerLabel = view as! UILabel!
+//        if view == nil {  //if no label there yet
+//            pickerLabel = UILabel()
+//            
+//            //color  and center the label's background
+//            let hue = CGFloat(row)/CGFloat(measures!.count)
+//            pickerLabel.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness:1.0, alpha: 1.0)
+//            pickerLabel.textAlignment = .Center
+//            
+//        }
+//        let titleData = wholeNumbers[row]
+//        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 26.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+//        pickerLabel!.attributedText = myTitle
+//        
+//        return pickerLabel
+//        
+//    }
+    
+//    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+//        let titleData = measures![row].measure
+//        var myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!,NSForegroundColorAttributeName:UIColor.blueColor()])
+//        return myTitle
+//    }
+
+    
+    //--------Update Amount of Item Consumed in Grams--------//
+    
+    func updateAmounts()
+    {   let wholeNumber = wholeNumbers[measurePicker.selectedRowInComponent(0)]
+        var wholeNumberInt : Int = 0
+        
+        if wholeNumber != "—"
+        {
+            wholeNumberInt = (wholeNumber).toInt()!
+        }
+        
+        else
+        {
+            wholeNumberInt = 0;
+        }
+        
+        let fraction = fracToDouble(fractionNumbers[measurePicker.selectedRowInComponent(1)])
+        
+        let chosenConsumedAmount = Double(wholeNumberInt) + fraction
+        
+        let weightInGrams = measures![measurePicker.selectedRowInComponent(2)].weightInGrams
+        
+        //description of the measure in words
+        let measureDesc = measures![measurePicker.selectedRowInComponent(2)].measure
+        
+        let amountPerMeasure = measures![measurePicker.selectedRowInComponent(2)].amountPer
+        
+        let weightConsumed = (weightInGrams/amountPerMeasure) * chosenConsumedAmount
+        
+        println("Chosen amount: \(chosenConsumedAmount) and weight is \(weightConsumed).")
+        
+        makeFoodLogItem(weightConsumed, whole: Double(wholeNumberInt), frac: fraction, measure: measureDesc)
+        
+    }
+    
+    //---------Create a FoodLog Object----------//
+    //         
+    //         and set as self.logItem
+    
+    func makeFoodLogItem(grams : Double, whole : Double, frac : Double, measure : String)
+    {
+        let id = self.foodItem!.id
+        
+        //get todays date in 2015-06-02 format
+        var date = NSDate()
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        var dateInFormat = dateFormatter.stringFromDate(date)
+        
+        ////get todays time in 17:07:40 format
+        var dateFormatter2 = NSDateFormatter()
+        dateFormatter2.dateFormat = "HH:mm:ss"
+        var timeInFormat = dateFormatter2.stringFromDate(date)
+        
+        
+        self.logItem = FoodLog(foodId : id, amountConsumedGrams : grams, date : dateInFormat, time : timeInFormat, wholeNumber : whole, fraction : frac, measure : measure)
+    }
+    
+    func fracToDouble(fraction : String) -> Double
+    {
+        switch fraction
+        {
+            case "—":
+                return 0.0
+            case "1/8":
+                return 0.125
+            case "1/4":
+                return 0.25
+            case "1/3":
+                return 0.333
+            case "1/2":
+                return 0.5
+            case "2/3":
+                return 0.666
+            case "3/4":
+                return 0.75
+            default:
+                return 0.0
+        }
+    }
+    
+    
+    //--------Get SQLite Info--------//
+    
+    func getUnits(id : Int)
+    {
+        //measures is an array of Weights associated with one food item
+        self.measures = ModelManager.instance.getMeasures(id)
+    }
+    
+    func getNutrients(id : Int)
+    {
+        self.nutrients = ModelManager.instance.getNutrients(id)
+    }
+
+
+    //--------Toggle Tab Bar--------//  call with setTabBarVisible(!tabBarIsVisible(), animated: true)
+
+    func setTabBarVisible(visible:Bool, animated:Bool) {
+        
+        toggleFlag = false
+        
+        //* This cannot be called before viewDidLayoutSubviews(), because the frame is not set before this time
+        
+        // bail if the current state matches the desired state
+        if (tabBarIsVisible() == visible) { return }
+        
+        // get a frame calculation ready
+        let frame = self.tabBarController?.tabBar.frame
+        let height = frame?.size.height
+        let offsetY = (visible ? -height! : height)
+        
+        // zero duration means no animation
+        let duration:NSTimeInterval = (animated ? 0.3 : 0.0)
+        
+        //  animate the tabBar
+        if frame != nil {
+            UIView.animateWithDuration(duration) {
+                self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
+                return
+            }
+        }
+    }
+    
+    func tabBarIsVisible() ->Bool {
+        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+    }
+
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

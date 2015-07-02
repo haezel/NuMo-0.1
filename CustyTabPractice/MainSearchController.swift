@@ -23,12 +23,11 @@ class MainSearchController: UIViewController, UITableViewDelegate, UITableViewDa
     var searchResultsController : UITableViewController?
     
     override func viewDidLoad() {
+        
+        println("*****VIEW DID LOAD******")
         super.viewDidLoad()
         
         self.title = "Search Item"
-        
-        //grab food items from sqlite and put into allFoods[]
-        ModelManager.instance.getAllFoodData()
         
         // A table for search results and its controller.
         let resultsTableView = UITableView(frame: self.tableView.frame)
@@ -114,6 +113,7 @@ class MainSearchController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         cell.textLabel!.text = text
+        cell.backgroundColor = UIColor.colorFromCode(0xDBE6EC)
         
         return cell
     }
@@ -124,26 +124,26 @@ class MainSearchController: UIViewController, UITableViewDelegate, UITableViewDa
         self.performSegueWithIdentifier("ToDetailSegue", sender: tableView)
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "ToDetailSegue"
-//        {
-//            let destinationVC = segue.destinationViewController as! PickAmountViewController
-//            
-//            //sender is the filtered results table
-//            if sender as? UITableView == self.searchResultsController?.tableView {
-//                let indexPath = (sender as? UITableView)!.indexPathForSelectedRow()!
-//                let chosenItemId = self.filteredFoods[indexPath.row]
-//                destinationVC.foodItem = chosenItemId
-//            }
-//            else //sender is the original table
-//            {
-//                let indexPath = self.tableView.indexPathForSelectedRow()!
-//                let chosenItemId = allFoods[indexPath.row]
-//                destinationVC.foodItem = chosenItemId
-//            }
-//            
-//        }
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ToDetailSegue"
+        {
+            let destinationVC = segue.destinationViewController as! PickAmountViewController
+            
+            //sender is the filtered results table
+            if sender as? UITableView == self.searchResultsController?.tableView {
+                let indexPath = (sender as? UITableView)!.indexPathForSelectedRow()!
+                let chosenItemId = self.filteredFoods[indexPath.row]
+                destinationVC.foodItem = chosenItemId
+            }
+            else //sender is the original table
+            {
+                let indexPath = self.tableView.indexPathForSelectedRow()!
+                let chosenItemId = allFoods[indexPath.row]
+                destinationVC.foodItem = chosenItemId
+            }
+            
+        }
+    }
     
     //--------UISearchResultsUpdating methods--------//
     

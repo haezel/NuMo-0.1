@@ -21,6 +21,21 @@ class SearchTabController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //give the buttons names and add set their unicode character for fontawesome
+        
+        let mainSearchTabBarButton : UIButton = tabBarButtons[0]
+        mainSearchTabBarButton.setTitle("\u{f0f5}", forState:UIControlState.Normal)
+        
+        let barcodeSearchTabBarButton : UIButton = tabBarButtons[1]
+        barcodeSearchTabBarButton.setTitle("\u{f02a}", forState:UIControlState.Normal)
+        
+        let pictureSaveTabBarButton : UIButton = tabBarButtons[2]
+        pictureSaveTabBarButton.setTitle("\u{f030}", forState:UIControlState.Normal)
+        
+        let addItemTabBarButton : UIButton = tabBarButtons[3]
+        addItemTabBarButton.setTitle("\u{f055}", forState:UIControlState.Normal)
+
+ 
         if(tabBarButtons.count > 0)
         {
             performSegueWithIdentifier("Search1", sender: tabBarButtons[0])

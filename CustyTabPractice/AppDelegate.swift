@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // Override point for customization after application launch.
         
+        println("application did finish launching with options")
+
+        
         Util.copyFile("usda.sql3")
         
         // Return status bar to the screen & set its style.
@@ -27,8 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Setup navigation bar appearance.
         let navigationBar = UINavigationBar.appearance()
-        navigationBar.barTintColor = UIColor.colorFromCode(0xEE4540)//0x2ecc71)
+        navigationBar.barTintColor = UIColor.colorFromCode(0xDBE6EC)
         navigationBar.tintColor = UIColor.whiteColor()
+        
+        //grab food items from sqlite and put into allFoods[]
+        ModelManager.instance.getAllFoodData()
         
         return true
     }
@@ -49,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        println("application did become active")
     }
 
     func applicationWillTerminate(application: UIApplication) {
