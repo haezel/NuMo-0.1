@@ -138,8 +138,8 @@ class MainSearchController: UIViewController, UITableViewDelegate, UITableViewDa
             else //sender is the original table
             {
                 let indexPath = self.tableView.indexPathForSelectedRow()!
-                let chosenItemId = allFoods[indexPath.row]
-                destinationVC.foodItem = chosenItemId
+                let chosenItem = allFoods[indexPath.row]
+                destinationVC.foodItem = chosenItem
             }
             
         }

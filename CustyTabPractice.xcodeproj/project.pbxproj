@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A7A38741B48718400F1A752 /* NutrientDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7A38731B48718400F1A752 /* NutrientDetailController.swift */; };
+		8A7A38761B4B365900F1A752 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7A38751B4B365900F1A752 /* ModelManager.swift */; };
 		8AB7516A1B420F8800BCE1A9 /* PhotoRemindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB751691B420F8800BCE1A9 /* PhotoRemindController.swift */; };
 		8AC9ACE61B33785500CE020C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9ACE51B33785500CE020C /* AppDelegate.swift */; };
 		8AC9ACE81B33785500CE020C /* MainSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9ACE71B33785500CE020C /* MainSearchController.swift */; };
@@ -20,7 +22,6 @@
 		8AD428901B34AD4B000AAFBB /* SearchTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4288F1B34AD4B000AAFBB /* SearchTabController.swift */; };
 		8AD428921B34B6FE000AAFBB /* SearchNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428911B34B6FE000AAFBB /* SearchNavigationSegue.swift */; };
 		8AD428961B38BEE7000AAFBB /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428951B38BEE7000AAFBB /* Food.swift */; };
-		8AD428981B38BF10000AAFBB /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428971B38BF10000AAFBB /* ModelManager.swift */; };
 		8AD4289A1B38C081000AAFBB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD428991B38C081000AAFBB /* libsqlite3.dylib */; };
 		8AD428B21B38C288000AAFBB /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428AE1B38C288000AAFBB /* Weight.swift */; };
 		8AD428B31B38C288000AAFBB /* Nutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD428AF1B38C288000AAFBB /* Nutrient.swift */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A7A38731B48718400F1A752 /* NutrientDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientDetailController.swift; sourceTree = "<group>"; };
+		8A7A38751B4B365900F1A752 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		8AB751691B420F8800BCE1A9 /* PhotoRemindController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoRemindController.swift; sourceTree = "<group>"; };
 		8AC9ACE01B33785500CE020C /* CustyTabPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustyTabPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC9ACE41B33785500CE020C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,7 +73,6 @@
 		8AD4288F1B34AD4B000AAFBB /* SearchTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabController.swift; sourceTree = "<group>"; };
 		8AD428911B34B6FE000AAFBB /* SearchNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationSegue.swift; sourceTree = "<group>"; };
 		8AD428951B38BEE7000AAFBB /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
-		8AD428971B38BF10000AAFBB /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		8AD428991B38C081000AAFBB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8AD428AE1B38C288000AAFBB /* Weight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		8AD428AF1B38C288000AAFBB /* Nutrient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrient.swift; sourceTree = "<group>"; };
@@ -154,8 +156,8 @@
 				8AD428AF1B38C288000AAFBB /* Nutrient.swift */,
 				8AD428B01B38C288000AAFBB /* FoodLog.swift */,
 				8AD428B11B38C288000AAFBB /* FoodForTable.swift */,
-				8AD428971B38BF10000AAFBB /* ModelManager.swift */,
 				8AD428951B38BEE7000AAFBB /* Food.swift */,
+				8A7A38751B4B365900F1A752 /* ModelManager.swift */,
 				8AC9ACE51B33785500CE020C /* AppDelegate.swift */,
 				8AC9ACE71B33785500CE020C /* MainSearchController.swift */,
 				8AD428D41B39F51C000AAFBB /* PickAmountViewController.swift */,
@@ -169,6 +171,7 @@
 				8AD4288F1B34AD4B000AAFBB /* SearchTabController.swift */,
 				8AD428911B34B6FE000AAFBB /* SearchNavigationSegue.swift */,
 				8AB751691B420F8800BCE1A9 /* PhotoRemindController.swift */,
+				8A7A38731B48718400F1A752 /* NutrientDetailController.swift */,
 			);
 			path = CustyTabPractice;
 			sourceTree = "<group>";
@@ -331,7 +334,6 @@
 				8AC9ACE81B33785500CE020C /* MainSearchController.swift in Sources */,
 				8AD428B41B38C288000AAFBB /* FoodLog.swift in Sources */,
 				8AD428DA1B39FA01000AAFBB /* NutrientTableViewCell.swift in Sources */,
-				8AD428981B38BF10000AAFBB /* ModelManager.swift in Sources */,
 				8AB7516A1B420F8800BCE1A9 /* PhotoRemindController.swift in Sources */,
 				8AD428B71B38C2F8000AAFBB /* Util.swift in Sources */,
 				8AD428961B38BEE7000AAFBB /* Food.swift in Sources */,
@@ -341,6 +343,8 @@
 				8AD428901B34AD4B000AAFBB /* SearchTabController.swift in Sources */,
 				8AD428CD1B38D9A3000AAFBB /* FMDatabaseAdditions.m in Sources */,
 				8AD428921B34B6FE000AAFBB /* SearchNavigationSegue.swift in Sources */,
+				8A7A38741B48718400F1A752 /* NutrientDetailController.swift in Sources */,
+				8A7A38761B4B365900F1A752 /* ModelManager.swift in Sources */,
 				8AD428CE1B38D9A3000AAFBB /* FMDatabasePool.m in Sources */,
 				8AD428CA1B38D9A3000AAFBB /* FMDatabase.m in Sources */,
 				8AD428D51B39F51C000AAFBB /* PickAmountViewController.swift in Sources */,

@@ -14,6 +14,9 @@
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -218,7 +221,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEx-N7-Unj">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XEx-N7-Unj">
                                 <rect key="frame" x="0.0" y="49" width="600" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="1e6-m0-oOx"/>
@@ -228,32 +231,144 @@
                                     <outlet property="delegate" destination="c8J-wc-t5V" id="tvu-fL-DGi"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvL-di-Z83">
-                                <rect key="frame" x="269" y="562" width="63" height="30"/>
-                                <state key="normal" title="Add Item">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQO-Kf-FIm">
+                                <rect key="frame" x="16" y="540" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="efi-yb-Oeh"/>
+                                    <constraint firstAttribute="height" constant="40" id="tKG-QD-cxK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="30"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.27058823529999998" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.85355863499999995" green="0.27058823529999998" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="addItemToLog:" destination="c8J-wc-t5V" eventType="touchUpInside" id="eK3-dk-6Rl"/>
+                                    <action selector="cancelUpdatePressed:" destination="c8J-wc-t5V" eventType="touchUpInside" id="QCT-An-ITl"/>
+                                    <segue destination="IV9-qe-Vom" kind="unwind" unwindAction="cancelToMyDayViewController:" id="nOa-we-xrP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TV7-wF-c3f">
+                                <rect key="frame" x="544" y="540" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0WM-NQ-Ijy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="30"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.27058823529999998" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.85355863499999995" green="0.27058823529999998" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addItemToLog:" destination="c8J-wc-t5V" eventType="touchUpInside" id="oyf-fn-mcx"/>
+                                    <segue destination="IV9-qe-Vom" kind="unwind" unwindAction="cancelToMyDayViewController:" id="3uM-PG-aKq"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TV7-wF-c3f" firstAttribute="top" secondItem="vQO-Kf-FIm" secondAttribute="top" id="4Ok-d6-1ZD"/>
+                            <constraint firstItem="TV7-wF-c3f" firstAttribute="trailing" secondItem="HrS-cx-SjC" secondAttribute="trailingMargin" id="MPJ-xs-htB"/>
                             <constraint firstItem="XEx-N7-Unj" firstAttribute="leading" secondItem="HrS-cx-SjC" secondAttribute="leadingMargin" constant="-16" id="SN8-bX-gHh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XEx-N7-Unj" secondAttribute="trailing" constant="-16" id="Y8O-aY-vDL"/>
+                            <constraint firstItem="TV7-wF-c3f" firstAttribute="bottom" secondItem="vQO-Kf-FIm" secondAttribute="bottom" id="b90-So-xAt"/>
                             <constraint firstItem="XEx-N7-Unj" firstAttribute="top" secondItem="lmz-eS-fOe" secondAttribute="bottom" id="fFI-Ow-aua"/>
-                            <constraint firstItem="BOd-dJ-Iyr" firstAttribute="top" secondItem="cvL-di-Z83" secondAttribute="bottom" constant="8" symbolic="YES" id="khL-O3-H7M"/>
-                            <constraint firstItem="cvL-di-Z83" firstAttribute="centerX" secondItem="XEx-N7-Unj" secondAttribute="centerX" id="yOx-z0-dnN"/>
+                            <constraint firstAttribute="bottom" secondItem="vQO-Kf-FIm" secondAttribute="bottom" constant="20" symbolic="YES" id="fLr-0o-lr1"/>
+                            <constraint firstItem="vQO-Kf-FIm" firstAttribute="leading" secondItem="HrS-cx-SjC" secondAttribute="leadingMargin" id="haN-dg-LL5"/>
+                            <constraint firstItem="TV7-wF-c3f" firstAttribute="firstBaseline" secondItem="vQO-Kf-FIm" secondAttribute="firstBaseline" id="qHB-dP-1Ar"/>
+                            <constraint firstItem="TV7-wF-c3f" firstAttribute="baseline" secondItem="vQO-Kf-FIm" secondAttribute="baseline" id="sGb-eF-FnZ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addOrAdjustButton" destination="TV7-wF-c3f" id="k2g-f7-TzX"/>
+                        <outlet property="cancelUpdate" destination="vQO-Kf-FIm" id="omK-cT-0ZW"/>
                         <outlet property="measurePicker" destination="XEx-N7-Unj" id="cbb-lM-rtv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffH-1L-Eka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="IV9-qe-Vom" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3874" y="-1130"/>
+            <point key="canvasLocation" x="3902" y="-1130"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4Fo-bp-sqG">
+            <objects>
+                <viewController id="WzY-NX-aH4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="caA-Se-zXR"/>
+                        <viewControllerLayoutGuide type="bottom" id="CcB-Nb-5Q8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CBk-HI-iZM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipe-8g-LRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="925" y="1283"/>
+        </scene>
+        <!--Nutrient Detail Controller-->
+        <scene sceneID="Unp-f0-0mp">
+            <objects>
+                <viewController id="s4r-sK-63X" customClass="NutrientDetailController" customModule="CustyTabPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ufn-4i-6Fo"/>
+                        <viewControllerLayoutGuide type="bottom" id="LEY-A0-HeD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sNr-FR-LxU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfR-jL-STT">
+                                <rect key="frame" x="16" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0UG-a9-is9"/>
+                                    <constraint firstAttribute="height" constant="40" id="hkt-OV-bnu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="30"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.27058823529999998" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.85355863499999995" green="0.27058823529999998" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="AYX-r1-ITo" kind="unwind" unwindAction="cancelToMyDayViewController:" id="d3q-42-5Ib"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dfR-jL-STT" firstAttribute="leading" secondItem="sNr-FR-LxU" secondAttribute="leadingMargin" id="GFH-p8-oYo"/>
+                            <constraint firstItem="dfR-jL-STT" firstAttribute="top" secondItem="Ufn-4i-6Fo" secondAttribute="bottom" id="zhy-au-sRy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="goBackToMyDayButton" destination="dfR-jL-STT" id="1l5-x6-wFp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QYt-UO-Ksp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="AYX-r1-ITo" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1538" y="1283"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OvT-F1-0jm">
@@ -515,7 +630,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nF3-Uj-Alv">
-                                <rect key="frame" x="0.0" y="124" width="600" height="475.5"/>
+                                <rect key="frame" x="0.0" y="124" width="600" height="476"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="421" id="2GV-ag-1g3"/>
@@ -567,33 +682,65 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXa-IU-d6Q">
-                                <rect key="frame" x="277" y="80" width="46" height="20.5"/>
+                                <rect key="frame" x="277" y="81" width="46" height="19"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSP-T4-RNu">
+                                <rect key="frame" x="216" y="75" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="F9y-1G-3Gg"/>
+                                </constraints>
+                                <state key="normal" title="←">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.27058823529999998" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackADay:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="kXU-fA-XfQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhp-Wy-8VT">
+                                <rect key="frame" x="354" y="75" width="30" height="30"/>
+                                <state key="normal" title="→">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.27058823529999998" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goForwardADay:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="mlC-J2-Tbe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Hhp-Wy-8VT" firstAttribute="trailing" secondItem="1r7-Xv-gph" secondAttribute="trailing" id="2HG-1b-Sa1"/>
+                            <constraint firstItem="Hhp-Wy-8VT" firstAttribute="baseline" secondItem="eSP-T4-RNu" secondAttribute="baseline" id="3eq-ol-DsL"/>
+                            <constraint firstItem="eSP-T4-RNu" firstAttribute="centerY" secondItem="nXa-IU-d6Q" secondAttribute="centerY" id="AJt-nE-eDG"/>
                             <constraint firstAttribute="centerX" secondItem="nXa-IU-d6Q" secondAttribute="centerX" id="G4n-c6-xNr"/>
+                            <constraint firstItem="eSP-T4-RNu" firstAttribute="leading" secondItem="1r7-Xv-gph" secondAttribute="leading" id="IEh-78-Y3m"/>
                             <constraint firstItem="nXa-IU-d6Q" firstAttribute="top" secondItem="1r7-Xv-gph" secondAttribute="bottom" constant="24" id="SRo-N6-0Ai"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nF3-Uj-Alv" secondAttribute="trailing" constant="-16" id="aFR-d7-QGZ"/>
+                            <constraint firstItem="nF3-Uj-Alv" firstAttribute="top" secondItem="eSP-T4-RNu" secondAttribute="bottom" constant="19" id="fdq-zc-CID"/>
                             <constraint firstItem="nF3-Uj-Alv" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-16" id="grK-iQ-rY8"/>
                             <constraint firstItem="nF3-Uj-Alv" firstAttribute="top" secondItem="nXa-IU-d6Q" secondAttribute="bottom" constant="24" id="h4Q-7I-yIq"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="nF3-Uj-Alv" secondAttribute="bottom" id="sQb-pQ-QWR"/>
                             <constraint firstItem="1r7-Xv-gph" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="sTi-LI-nw1"/>
+                            <constraint firstItem="eSP-T4-RNu" firstAttribute="top" secondItem="1r7-Xv-gph" secondAttribute="bottom" constant="19" id="se9-e0-SZX"/>
                             <constraint firstItem="1r7-Xv-gph" firstAttribute="centerX" secondItem="nF3-Uj-Alv" secondAttribute="centerX" id="xFv-Z4-l7Y"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="dateLabel" destination="nXa-IU-d6Q" id="qJ0-8K-fQQ"/>
                         <outlet property="itemNutrientSegControl" destination="1r7-Xv-gph" id="HYI-SV-ps8"/>
                         <outlet property="tableView" destination="nF3-Uj-Alv" id="mTq-J6-XvY"/>
+                        <segue destination="s4r-sK-63X" kind="presentation" identifier="goToNutrientDetail" modalPresentationStyle="overFullScreen" id="C82-Mi-b5U"/>
+                        <segue destination="c8J-wc-t5V" kind="presentation" identifier="goToAdjustFoodAmount" modalPresentationStyle="overFullScreen" id="hVJ-fb-nLa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794" y="552"/>
+            <point key="canvasLocation" x="1098" y="542"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0p2-yk-Drl">
@@ -649,4 +796,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hVJ-fb-nLa"/>
+    </inferredMetricsTieBreakers>
 </document>

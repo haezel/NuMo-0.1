@@ -8,18 +8,23 @@
 
 import UIKit
 
+var dateChosen : String = "2015-06-30"
+
 class MyDayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let daysInMonths = [0,31,28,31,30,31,30,31,31,30,31,30,31]
+    let daysInYear = 365
     //hardcoded nutrients to show
-    var nutrientsToShow = [255, 208, 318, 621, 629, 304, 305, 306, 307, 573, 601]
+    var nutrientsToShow = [204, 203, 208, 262, 291, 318, 621, 629, 304, 305, 306, 307, 573, 601]
     
     var itemOrNutrientFlag = "item"
     
     //need to use a UI element to chose this String date
-    var dateChosen = "2015-06-30"
+    //var dateChosen = "2015-06-30"
+    @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var itemNutrientSegControl: UISegmentedControl!
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     //holds (FoodItems for the table, numberOfItems)
@@ -44,7 +49,24 @@ class MyDayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //get rid of 1 cell space at top and bottom of tableview - not best solution
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        let todaysDate = getTodaysDateString()
+        if todaysDate == dateChosen
+        {
+            self.dateLabel.text = "Today"
+        }
+        else
+        {
+            self.dateLabel.text = dateChosen
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
 
+    }
+    
+    func loadList(notification: NSNotification){
+        //load data here
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +81,102 @@ class MyDayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.nutrientTotals = ModelManager.instance.getNutrientTotals(dateChosen)
     }
     
+    //---------Helper Get Today's Date Method--------//
+    
+    func getTodaysDateString() -> String {
+        
+        var date = NSDate()
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        var dateInFormat = dateFormatter.stringFromDate(date)
+        return dateInFormat
+    }
+    
+    //--------Change Calendar Day Methods--------//
+    //--------These need to be implemented better...only works for 30 day months...FIX THIS SHIT!
+    
+    @IBAction func goBackADay(sender: AnyObject) {
+        var currentDate = dateChosen
+        var myStringArr = currentDate.componentsSeparatedByString("-")
+        var oldyear = myStringArr[0].toInt()
+        var oldmonth = myStringArr[1].toInt()
+        var oldday = myStringArr[2].toInt()
+        
+        var newday = 100
+        var newmonth = 100
+        
+        if oldday == 1
+        {
+            newday = 30
+            newmonth = oldmonth! - 1
+        }
+        else
+        {
+            newday = oldday! - 1
+            newmonth = oldmonth!
+        }
+        
+        if newday < 10
+        {
+            dateChosen = "\(oldyear!)-0\(newmonth)-0\(newday)"
+        }
+        else
+        //println("\(oldyear!)-\(newmonth)-\(newday)")
+        {
+            dateChosen = "\(oldyear!)-0\(newmonth)-\(newday)"
+        }
+        
+        let todaysDate = getTodaysDateString()
+        if todaysDate == dateChosen
+        {
+            self.dateLabel.text = "Today"
+        }
+        else {
+            self.dateLabel.text = dateChosen
+        }
+        self.tableView.reloadData()
+    }
+    
+    @IBAction func goForwardADay(sender: AnyObject) {
+        var currentDate = dateChosen
+        var myStringArr = currentDate.componentsSeparatedByString("-")
+        var oldyear = myStringArr[0].toInt()
+        var oldmonth = myStringArr[1].toInt()
+        var oldday = myStringArr[2].toInt()
+        
+        var newday = 100
+        var newmonth = 100
+        
+        if oldday == 30
+        {
+            newday = 1
+            newmonth = oldmonth! + 1
+        }
+        else
+        {
+            newday = oldday! + 1
+            newmonth = oldmonth!
+        }
+        if newday < 10
+        {
+            dateChosen = "\(oldyear!)-0\(newmonth)-0\(newday)"
+        }
+        //println("\(oldyear!)-\(newmonth)-\(newday)")
+        else
+        {
+            dateChosen = "\(oldyear!)-0\(newmonth)-\(newday)"
+        }
+        
+        let todaysDate = getTodaysDateString()
+        if todaysDate == dateChosen
+        {
+            self.dateLabel.text = "Today"
+        }
+        else {
+            self.dateLabel.text = dateChosen
+        }
+        self.tableView.reloadData()
+    }
     
     //--------Table View Methods---------//
     
@@ -106,16 +224,29 @@ class MyDayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             //grab associated element from dictionary of all nutrient totals
             //**** this dictionary should start out with all totals being 0
+            //if there is no record in the nutrient total dictionary for this nutrientID
+            //need to just say 0.0!
             var nutrientCellInfo = self.nutrientTotals![nutrientId]
             
-            //grab the title String from nutrientTotals
-            var title = nutrientCellInfo!.nutrient.name
+            if nutrientCellInfo != nil {
             
-            var unit = nutrientCellInfo!.nutrient.units
-            var totalAmount = nutrientCellInfo!.total
+                //grab the title String from nutrientTotals
+                var title = nutrientCellInfo!.nutrient.name
+                
+                var unit = nutrientCellInfo!.nutrient.units
+                var totalAmount = nutrientCellInfo!.total
+                
+                cell.nutrientNameLabel.text = title
+                //println("**** \(totalAmount)")
+                cell.percentNutrientLabel.text = String(format: "%.2f \(unit)", totalAmount)
             
-            cell.nutrientNameLabel.text = title
-            cell.percentNutrientLabel.text = String(format: "%.0f \(unit)", totalAmount)
+            }
+            else //there is no amount recorded yet for this nutrient
+            {
+                var emptyNutrient = ModelManager.instance.getANutrientInfo(nutrientId)
+                cell.nutrientNameLabel.text = emptyNutrient.name
+                cell.percentNutrientLabel.text = String("0.00 \(emptyNutrient.units)")
+            }
 
             cell.backgroundColor = UIColor.clearColor()
     
@@ -181,6 +312,52 @@ class MyDayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return 43.0
         }
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if itemOrNutrientFlag == "nutrient"
+        {
+            self.performSegueWithIdentifier("goToNutrientDetail", sender: tableView)
+        }
+        else
+        {
+            self.performSegueWithIdentifier("goToAdjustFoodAmount", sender: tableView)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goToNutrientDetail"
+        {
+            
+        }
+        else if segue.identifier == "goToAdjustFoodAmount"
+        {
+            let destinationVC = segue.destinationViewController as! PickAmountViewController
+            
+            let indexPath = self.tableView.indexPathForSelectedRow()!
+            let chosenItemId = self.logInfo!.0[indexPath.row].foodId
+            //now get the Food object for this id
+            //from the allFoods[] global array...
+            let searchById = allFoods.filter({f in f.id <= chosenItemId && f.id >= chosenItemId})
+            
+            let timeLogged = self.logInfo!.0[indexPath.row].time
+            
+            destinationVC.timePreviouslyLogged = timeLogged
+            destinationVC.foodItem = searchById[0]
+            destinationVC.toggleAdjustOrAdd = "adjust"
+        }
+    }
+    
+    
+    //--------Unwind Segue Methods--------//
+    
+    @IBAction func cancelToMyDayViewController(segue:UIStoryboardSegue) {
+        
+    }
+    
+//    @IBAction func savePlayerDetail(segue:UIStoryboardSegue) {
+//        
+//    }
     
     //---------Segmented Control Changed---------//
     

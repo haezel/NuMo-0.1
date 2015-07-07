@@ -88,7 +88,7 @@ class ModelManager : NSObject
     //
     //           returns an dictionary of key nutrientId and values: Nutrients, total amounts
     //
-
+    
     func getNutrientTotals(date : String) -> Dictionary<Int, (nutrient:Nutrient, total:Double)>
     {
         //var loggedItems = (getLoggedItems()).0
@@ -129,13 +129,13 @@ class ModelManager : NSObject
                 for nutrient in itsNutrients
                 {
                     let nutrientId = nutrient.nutrientId
-
+                    
                     let nutrientContentConsumed = (nutrient.amountPerHundredGrams/100.0) * item.1
-
+                    
                     var previousTotal = 0.0
-
+                    
                     var prevNutrient = nt[nutrientId]
-
+                    
                     if prevNutrient != nil
                     {
                         previousTotal = prevNutrient!.total
@@ -147,7 +147,7 @@ class ModelManager : NSObject
                 }
             }
         }
-        
+            
         else //food log is empty so we need to just return a dict nt of Id<Nutrient, 0.0>
         {
             let allNutrients = getAllNutrients()
@@ -163,7 +163,7 @@ class ModelManager : NSObject
         
         return nt
     }
-
+    
     
     
     //-----------Get an Array of Nutrients, Nutrient Amounts, and Nutrient Units for a particular food-----------//
@@ -241,6 +241,32 @@ class ModelManager : NSObject
         return isInserted
     }
     
+    //----------Update amount of Item in foodLog table-----------//
+    
+    func updateFoodItemLogAmount(item : FoodLog) {
+    
+        sharedInstance.database!.open()
+        
+        println(item.amountConsumedGrams)
+        println(item.wholeNumber)
+        println(item.fraction)
+        println(item.measure)
+        println(item.date)
+        println(item.time)
+        println(item.foodId)
+
+        
+//        let query = "UPDATE food_log SET amount_consumed_grams=?, whole_number=?, fraction=? WHERE date_logged=? AND time_logged=?"
+//        let isUpdated = sharedInstance.database!.executeUpdate(query, withArgumentsInArray: [item.amountConsumedGrams, item.wholeNumber, item.fraction, item.measure, item.date, item.time])
+//        println("should have updated \(isUpdated)")
+//        sharedInstance.database!.close()
+//        return isUpdated
+        
+        deleteItemFromFoodLog(item.date, time: item.time)
+        addFoodItemToLog(item)
+        
+    }
+    
     // gets all of the logged food_log items for date provided
     // returns a tuple of (array of foodForTable items, number of items)
     
@@ -289,14 +315,14 @@ class ModelManager : NSObject
                 let time = resultSet2.stringForColumn("time_logged")
                 println("Time of this item added: \(time)")
                 let wholeNo = resultSet2.doubleForColumn("whole_number")
-
+                
                 let fraction = resultSet2.doubleForColumn("fraction")
                 let measure = resultSet2.stringForColumn("measure_description")
                 
                 let foodLogged : FoodForTable = FoodForTable(foodId: foodIdInt, foodDesc: foodDesc, wholeNumber: wholeNo, fraction: fraction, measureDesc: measure, time: time)
                 
                 foodsForTable.append(foodLogged)
-
+                
             }
         }
         
@@ -305,10 +331,11 @@ class ModelManager : NSObject
         var count2 : Int = Int(count)
         
         return (foodsForTable, count2)
-
+        
     }
     
-    //needs to be updated to take into account date logged...
+    //-------Delete an Item From Food Log--------//
+    
     func deleteItemFromFoodLog(date: String, time : String) -> Bool
     {
         sharedInstance.database!.open()
@@ -353,7 +380,44 @@ class ModelManager : NSObject
                 
             }
         }
+        sharedInstance.database!.close()
         return nutrients
+    }
+    
+    //---------Get 1 Nutrient Info--------//
+    
+    func getANutrientInfo(nId : Int) -> Nutrient
+    {
+        sharedInstance.database!.open()
+        
+        let query = "SELECT * FROM nutrient WHERE id=?"
+        
+        var result : FMResultSet! = sharedInstance.database!.executeQuery(query, withArgumentsInArray : [nId])
+        var nutrientIdInt : Int = 99999999
+        var units : String = "empty"
+        var name : String = "empty"
+        var amountPerHundred = 0.0
+        var tagName : String = "empty"
+        
+        if result != nil
+        {
+            while result.next()
+            {
+                var nutrientId = result.stringForColumn("id")
+                nutrientIdInt = nutrientId.toInt()!
+                
+                units = result.stringForColumn("units")
+                name = result.stringForColumn("name")
+                
+                tagName = ""
+                amountPerHundred = 0.0
+            
+            }
+        }
+        sharedInstance.database!.close()
+        
+        let theNutrient = Nutrient(nutrientId: nutrientIdInt, amountPerHundredGrams: amountPerHundred, units: units, name: name, tagName: tagName)
+        return theNutrient
     }
     
 }

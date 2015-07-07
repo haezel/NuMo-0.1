@@ -24,7 +24,7 @@ class SearchTabController: UIViewController {
         //give the buttons names and add set their unicode character for fontawesome
         
         let mainSearchTabBarButton : UIButton = tabBarButtons[0]
-        mainSearchTabBarButton.setTitle("\u{f0f5}", forState:UIControlState.Normal)
+        mainSearchTabBarButton.setTitle("\u{f002}", forState:UIControlState.Normal)
         
         let barcodeSearchTabBarButton : UIButton = tabBarButtons[1]
         barcodeSearchTabBarButton.setTitle("\u{f02a}", forState:UIControlState.Normal)

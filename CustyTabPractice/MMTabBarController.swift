@@ -23,7 +23,7 @@ class MMTabBarController: UIViewController {
         super.viewDidLoad()
         
         let searchTabBarButton : UIButton = tabBarButtons[0]
-        searchTabBarButton.setTitle("\u{f002}", forState:UIControlState.Normal)
+        searchTabBarButton.setTitle("\u{f055}", forState:UIControlState.Normal)
         
         let myDayTabBarButton : UIButton = tabBarButtons[1]
         myDayTabBarButton.setTitle("\u{f015}", forState:UIControlState.Normal)

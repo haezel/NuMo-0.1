@@ -36,6 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //grab food items from sqlite and put into allFoods[]
         ModelManager.instance.getAllFoodData()
         
+        //get and start app with todays date in 2015-06-02 format
+        var date = NSDate()
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        var dateInFormat = dateFormatter.stringFromDate(date)
+        dateChosen = dateInFormat
+        
         return true
     }
 
